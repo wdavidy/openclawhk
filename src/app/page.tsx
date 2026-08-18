@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { LocalNotes } from "@/components/local-notes";
-import { SITE_BASE_PATH } from "@/lib/site";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 
 const techStack = [
   "Next.js",
@@ -15,31 +15,7 @@ const techStack = [
 export default function Home() {
   return (
     <div className="flex min-h-full flex-1 flex-col">
-      <header className="sticky top-0 z-10 border-b bg-background/80 backdrop-blur">
-        <nav className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3">
-          <Link href="/" className="flex items-center gap-2 font-semibold">
-            <Image
-              src={`${SITE_BASE_PATH}/logo.svg`}
-              alt="OpenClaw HK logo"
-              width={28}
-              height={28}
-              priority
-            />
-            OpenClaw HK
-          </Link>
-          <div className="flex items-center gap-4 text-sm">
-            <Link href="/" className="font-medium text-foreground">
-              首頁
-            </Link>
-            <Link
-              href="/about"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              關於
-            </Link>
-          </div>
-        </nav>
-      </header>
+      <SiteHeader />
 
       <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-12">
         <section className="mb-12 text-center">
@@ -53,13 +29,19 @@ export default function Home() {
             部署在 GitHub Pages 的靜態網站 —
             使用 Next.js 靜態輸出，資料儲存於瀏覽器 LocalStorage。
           </p>
+          <Link
+            href="/todo"
+            className="mt-6 inline-flex h-11 items-center justify-center rounded-lg bg-primary px-6 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            開啟待辦清單 →
+          </Link>
         </section>
 
         <section className="mb-12">
           <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
             技術棧
           </h2>
-          <ul className="flex flex-wrap gap-2">
+          <ul className="flex flex-wrap justify-center gap-2">
             {techStack.map((tech) => (
               <li
                 key={tech}
@@ -76,19 +58,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="border-t py-6">
-        <div className="mx-auto flex max-w-4xl flex-col items-center gap-2 px-4 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} OpenClaw HK</p>
-          <a
-            href="https://github.com/wdavidy/openclawhk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline-offset-4 hover:underline"
-          >
-            GitHub Repository
-          </a>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

@@ -1,6 +1,12 @@
 # OpenClaw HK
 
-部署於 GitHub Pages 的 Next.js 靜態網站。
+部署於 GitHub Pages 的 Next.js 靜態網站，包含 **Todo List**（待辦清單）功能。
+
+## 功能
+
+- **待辦清單**（https://wdavidy.github.io/openclawhk/todo/）：新增、編輯、刪除、完成標記、篩選（全部/進行中/已完成）、清除已完成
+- 本地記事本（首頁示範）
+- 所有資料以 Zod 驗證後儲存於瀏覽器 LocalStorage
 
 ## 技術棧
 
