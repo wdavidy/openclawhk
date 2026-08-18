@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -21,7 +22,11 @@ export const metadata: Metadata = {
     "OpenClaw HK — 部署於 GitHub Pages 的 Next.js 靜態網站（TypeScript + Tailwind CSS + shadcn/ui + LocalStorage）",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html
       lang="zh-Hant"
